@@ -82,7 +82,7 @@ A run on a 63,000-line, seven-crate workspace surfaced three rough edges in the 
 
 - `unsafe_code = "forbid"` breaks edition 2024 tests that call `std::env::set_var`, which is now `unsafe`. Use `deny` and put `#[expect(unsafe_code, reason = "...")]` on those tests.
 - `allow-unwrap-in-tests` covers `#[test]` functions and `#[cfg(test)]` modules. Helper functions in `tests/*.rs` still trip `unwrap_used`.
-- The library lint block assumes outside users. On an internal workspace crate, `missing_docs`, `must_use_candidate` and `exhaustive_*` flag hundreds of items that Google's "used by other teams" scope would skip. Apply that block to published crates.
+- The library lint block assumes outside users. On an internal workspace crate, `missing_docs`, `must_use_candidate` and `exhaustive_*` flag hundreds of items that Google's "used by other teams" scope would skip. Apply that block to published crates. Internal crates and applications still take the rest of the skill.
 
 The skill leaves out rules Google tags for Chromium, Fuchsia or Android only, such as flat crate layout, `chromium::import!` and `fuchsia_sync::Mutex`.
 

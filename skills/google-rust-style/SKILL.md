@@ -19,7 +19,7 @@ First decide which kind of crate you are in ([G#api-design-context](https://goog
 - **Library**: used by other projects and solves a general problem. Every API rule here binds.
 - **Application**: one app and one specific problem. API rules are strong recommendations, and simplicity and directness win over reuse.
 
-Rules below marked *library* follow this split.
+Rules below marked *library* follow this split. Every other rule binds both kinds: an application with no outside users still takes the full rustfmt and clippy config except the library block, and every layout, import, error, naming and unsafe rule.
 
 ## 1. Tool config
 
